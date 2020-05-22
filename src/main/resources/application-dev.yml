@@ -1,0 +1,43 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:mysql://129.28.162.63:3306/adminV1?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      username: root
+      password: root1234
+      dbType: mysql   # 指定数据库类型 mysql
+      initialSize: 5  # 启动初始化连接数量
+      minIdle: 5      # 最小空闲连接
+      maxActive: 20   # 最大连接数量（包含使用中的和空闲的）
+      maxWait: 60000  # 最大连接等待时间 ，超出时间报错
+      timeBetweenEvictionRunsMillis: 60000  # 设置执行一次连接回收器的时间
+      minEvictableIdleTimeMillis: 300000   # 设置时间： 该时间内没有任何操作的空闲连接会被回收
+      validationQuery: select 1         # 验证连接有效性的sql
+      testWhileIdle: true             # 空闲时校验
+      testOnBorrow: false  # 使用中是否校验有效性
+      testOnReturn: false  # 归还连接池时是否校验
+      poolPreparedStatements: false  # mysql 不推荐打开预处理连接池
+      filters: stat,wall,logback  #设置过滤器 stat用于接收状态，wall防止sql注入，logback说明使用logback进行日志输出
+      userGlobalataSourceStat: true  # 统计所有数据源状态
+      connectionProperties: druid.stat.mergSql=true;druid.stat.slowSqlMillis=500  # sql合并统计 设置慢sql时间为500，超过500 会有记录提示
+  redis:
+    database: 0
+    host: 129.28.162.63
+    port: 6379
+    password: redis1234
+    timeout: 10000 #连接超时时间
+    jedis:
+      pool:
+        max-wait: -1 #阻塞最大等待时间 负值表示五限制
+        max-active: 100 #最大活动连接
+        max-idle: 10 #最大空闲连接数
+        min-idle: 1 #mix 空闲连接数
+mybatis:
+#  classpath后面的 * 必不可少,，缺少*号的话后面的通配符不起作用。   **表示可以表示任意多级目录。
+  # 如果mapper.xml文件放在resources中需要下面这行配置，如果和dao接口放在一个包中不需要
+  type-aliases-package: com.rog.adminpermission
+  mapper-locations: classpath*:mapper/**/*.xml
+
+logging:
+  config: classpath:logback-spring.xml

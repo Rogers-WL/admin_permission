@@ -1,0 +1,11 @@
+server:
+  port: 8088
+  #  ${random.int[1024,9999]} 随机端口
+  #  servlet:
+  #    context-path: /sb  #配置初始路径
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: Permission System

@@ -1,4 +1,4 @@
-package com.rog.adminpermission.controller.common;
+package com.rog.adminpermission.controller.sys;
 
 /**
  * Description: //TODO
