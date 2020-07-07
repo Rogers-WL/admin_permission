@@ -69,19 +69,13 @@
 <!--            <property name="rootInterface" value=""/>-->
         </javaClientGenerator>
 <!--       不禁用ByExample会覆盖通用Example-->
-        <table tableName="sys_role"   domainObjectName="SysRole"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
-            <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
-        </table>
-        <table tableName="sys_user"   domainObjectName="SysUser"
+        <table tableName="sys_role_action"   domainObjectName="SysRoleAction"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
             <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
         </table>
-        <table tableName="sys_user_role"   domainObjectName="SysUserRole"
+        <table tableName="sys_action"   domainObjectName="SysAction"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
             <!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->

@@ -18,4 +18,7 @@
     -->
     id, account, password, is_deleted, create_time, update_time
   </sql>
+  <select id="selectByUserName" parameterType="string" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/> from sys_user where username = #{userName}
+  </select>
 </mapper>

@@ -1,25 +1,19 @@
 package com.rog.adminpermission.po.sys;
 
-import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Date;
 import javax.persistence.*;
 
-/**
- * @author Rogers
- */
-@Table(name = "sys_user")
-public class SysUser{
+@Table(name = "sys_action")
+public class SysAction {
     @Id
     @GeneratedValue(generator = "JDBC")
     private Integer id;
 
-    private String account;
+    @Column(name = "action_name")
+    private String actionName;
 
-    private String password;
-
-    @Column(name = "is_deleted")
-    private Boolean isDeleted;
+    @Column(name = "action_url")
+    private String actionUrl;
 
     @Column(name = "create_time")
     private Date createTime;
@@ -42,45 +36,31 @@ public class SysUser{
     }
 
     /**
-     * @return account
+     * @return action_name
      */
-    public String getAccount() {
-        return account;
+    public String getActionName() {
+        return actionName;
     }
 
     /**
-     * @param account
+     * @param actionName
      */
-    public void setAccount(String account) {
-        this.account = account == null ? null : account.trim();
+    public void setActionName(String actionName) {
+        this.actionName = actionName == null ? null : actionName.trim();
     }
 
     /**
-     * @return password
+     * @return action_url
      */
-    public String getPassword() {
-        return password;
+    public String getActionUrl() {
+        return actionUrl;
     }
 
     /**
-     * @param password
+     * @param actionUrl
      */
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
-    }
-
-    /**
-     * @return is_deleted
-     */
-    public Boolean getIsDeleted() {
-        return isDeleted;
-    }
-
-    /**
-     * @param isDeleted
-     */
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
+    public void setActionUrl(String actionUrl) {
+        this.actionUrl = actionUrl == null ? null : actionUrl.trim();
     }
 
     /**

@@ -24,7 +24,7 @@ create table sys_role
 create table sys_user
 (
    id                   int not null auto_increment,
-   account              varchar(80),
+   username              varchar(80),
    password             varchar(80),
    is_deleted           bit,
    create_time          datetime,
@@ -44,9 +44,41 @@ create table sys_user_role
    primary key (id)
 );
 
-alter table sys_role add constraint FK_Reference_2 foreign key (id)
-      references sys_user_role (id) on delete restrict on update restrict;
-
-alter table sys_user add constraint FK_Reference_1 foreign key (id)
-      references sys_user_role (id) on delete restrict on update restrict;
+create table sys_action
+(
+    id                   int not null auto_increment,
+    action_name            varchar(30),
+    action_url           varchar(100),
+    create_time          datetime,
+    update_time          datetime,
+    primary key (id)
+);
+create table sys_role_action
+(
+    id                   int not null auto_increment,
+    role_id              int,
+    action_id            int,
+    create_time          datetime,
+    update_time          datetime,
+    primary key (id)
+);
+ALTER TABLE USERS ADD alias varchar(20) COMMENT '别名';
+# 3、修改字段
+#
+# 　　3.1 不修改名称 使用modify
+#
+# 1
+# ALTER TABLE USERS MODIFY name varchar(20) NOT NULL COMMENT '用户名';
+# 　　3.2 修改名称 使用change  格式 是 change 要修改的名称 新名称 ...
+#
+# 1
+# ALTER TABLE USERS CHANGE name username varchar(20) NOT NULL COMMENT '用户名';
+# 4、删除字段
+#
+# 1
+# 2
+# 3
+# ALTER TABLE USERS DROP COLUMN alias;
+# -- 删除多个字段
+# -- ALTER TABLE USERS DROP COLUMN alias,DROP COLUMN age;
 

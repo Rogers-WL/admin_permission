@@ -1,4 +1,4 @@
-package com.rog.adminpermission.constant;
+package com.rog.adminpermission.constant.sys;
 
 /**
  * @Description: //TODO
@@ -6,7 +6,6 @@ package com.rog.adminpermission.constant;
  * @Date: 2020/5/22 15:44
  */
 public enum ResultCode {
-
     /* 成功状态码 */
     SUCCESS(0, "成功"),
 
