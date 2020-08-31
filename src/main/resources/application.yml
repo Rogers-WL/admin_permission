@@ -1,5 +1,5 @@
 server:
-  port: 8088
+  port: 80886
   #  ${random.int[1024,9999]} 随机端口
   #  servlet:
   #    context-path: /sb  #配置初始路径
