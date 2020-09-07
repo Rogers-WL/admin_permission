@@ -2,7 +2,10 @@ package com.rog.authority.configuration.asyncconfiguration;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Component;
+
+import java.util.concurrent.Future;
 
 /**
  * @author wangl
@@ -52,6 +55,12 @@ public class TestAsync {
             e.printStackTrace();
         }
     }
+
+    @Async
+    public Future<String> hasReturn(){
+        return new  AsyncResult<>("卡莎：猎手本能");
+    }
+
     @Async("MyAsync")
     public void addPoll (){
         try {

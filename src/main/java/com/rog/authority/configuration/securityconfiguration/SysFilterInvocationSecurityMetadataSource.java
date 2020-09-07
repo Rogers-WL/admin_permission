@@ -19,8 +19,8 @@ import java.util.List;
 @Component
 public class SysFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
-    @Autowired
-    private SysActionMapper sysActionMapper;
+//    @Autowired
+//    private SysActionMapper sysActionMapper;
 
     AntPathMatcher antPathMatcher = new AntPathMatcher();
 
@@ -30,7 +30,7 @@ public class SysFilterInvocationSecurityMetadataSource implements FilterInvocati
         if("/login".equals(requestUrl)){
             return null;
         }
-        List<>
+
         return null;
     }
 

@@ -28,5 +28,6 @@ public class DetailsServiceImpl implements UserDetailsService {
         }
         BeanUtils.copyProperties(sysUser,sysUserDetails);
         return sysUserDetails;
+
     }
 }

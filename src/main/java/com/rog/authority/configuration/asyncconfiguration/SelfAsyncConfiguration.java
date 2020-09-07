@@ -20,13 +20,12 @@ public class SelfAsyncConfiguration {
         taskPoll.setCorePoolSize(2);
         //线程池维护的最大数量
         taskPoll.setMaxPoolSize(6);
-        //缓存队列。队满是申请增加核心线程数量
+        //缓存队列。队满时申请增加核心线程数量
         taskPoll.setQueueCapacity(2);
         //线程存活时间，超出核心线程池的空闲进程会销毁
         taskPoll.setKeepAliveSeconds(100);
         taskPoll.setThreadGroupName("gro");
         taskPoll.setThreadNamePrefix("tas-");
-
         //缓存队列满切线程数目达到最大是采用拒绝策略
         //abort:丢弃任务并抛出异常
         //discard:丢弃任务但不抛出异常

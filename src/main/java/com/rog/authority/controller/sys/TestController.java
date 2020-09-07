@@ -1,41 +1,54 @@
-//package com.rog.adminpermission.controller.sys;
-//
-//import com.tyn.blog.constant.ResultCode;
-//import com.tyn.blog.exception.AccountException;
-//import com.tyn.blog.po.jpa.Role;
-//import com.tyn.blog.service.TestService;
-//import com.tyn.blog.utils.TestAsync;
-//import com.tyn.blog.vo.TestValidation;
-//import io.swagger.annotations.*;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.beans.factory.annotation.Value;
-//import org.springframework.util.Assert;
-//import org.springframework.validation.annotation.Validated;
-//import org.springframework.web.bind.annotation.*;
-//import springfox.documentation.annotations.ApiIgnore;
-//
-///**
-// * @author wangl
-// * @Description todo
-// * @date 12/12/2019 2:55 PM
-// */
-//@Api(tags = {"测试用户接口"})
-//@RestController
-//public class TestController {
-//
-//    //与直接注释@Slf4j作用类似，底层框架必须包含 org.slf4j.impl.StaticLoggerBindder,slf4j将会主动去寻找这个类
-//    private static final Logger log = LoggerFactory.getLogger(TestController.class);
-//
+package com.rog.adminpermission.controller.sys;
+
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+/**
+ * @author wangl
+ * @Description todo
+ * @date 12/12/2019 2:55 PM
+ */
+@Api(tags = {"测试用户接口"})
+@RestController
+public class TestController {
+
+    //与直接注释@Slf4j作用类似，底层框架必须包含 org.slf4j.impl.StaticLoggerBindder,slf4j将会主动去寻找这个类
+    private static final Logger log = LoggerFactory.getLogger(TestController.class);
+
+    private static  final ExecutorService fixedThreadPool = Executors.newFixedThreadPool(5);
+
+
+
 //    @Autowired
 //    private TestAsync util;
 //    @Autowired
 //    private TestService testService;
-//
-//    @Value("${god}")
-//    private String god;
-//
+
+    @Value("${god}")
+    private String god;
+
+    //tags用在方法上会在swagger首页显示这个接口
+    @ApiOperation(value = "获取首页信息方法",notes = "这是提示信息note")
+    @PostMapping("/home")
+    public void home(){
+        fixedThreadPool.execute(()->{
+            try {
+                Thread.sleep(1000000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
 //    //tags用在方法上会在swagger首页显示这个接口
 //    @ApiOperation(value = "获取首页信息方法",notes = "这是提示信息note")
 //    @PostMapping("/home")
@@ -130,4 +143,4 @@
 //        util.addPoll();
 //        return  "change  successful";
 //    }
-//}
+}
