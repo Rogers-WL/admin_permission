@@ -2,8 +2,7 @@ server:
   port: 8089
   #  ${random.int[1024,9999]} 随机端口
   #  servlet:
-  #    context-path: /sb  #配置初始路径
-
+  #    context-path: /authority
 spring:
   profiles:
     active: dev
