@@ -72,3 +72,6 @@ ALTER TABLE USERS ADD alias varchar(20) COMMENT '别名';
 -- 删除多个字段
 -- ALTER TABLE USERS DROP COLUMN alias,DROP COLUMN age;
 
+-- https://blog.csdn.net/slj821/article/details/104961010
+-- https://blog.csdn.net/andy_zhang2007/article/details/90632411
+
