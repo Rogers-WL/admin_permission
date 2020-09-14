@@ -1,11 +1,5 @@
 
 
-https://blog.csdn.net/zhangbeizhen18/article/details/88866676
-
-https://blog.csdn.net/andy_zhang2007/article/details/90632411
-
-https://www.jianshu.com/p/fe1194ca8ecd
-
 # 接口默认方法和静态方法
 
 - Java 8允许我们给接口添加一个非抽象的方法实现，只需要使用 default关键字即可；

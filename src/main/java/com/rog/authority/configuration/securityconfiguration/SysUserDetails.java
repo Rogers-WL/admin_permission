@@ -1,6 +1,7 @@
 package com.rog.authority.configuration.securityconfiguration;
 
 import com.rog.authority.po.sys.SysRole;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,6 +15,7 @@ import java.util.List;
  * @Author Rogers
  * @Date 2020/6/22 21:26
  **/
+@Data
 public class SysUserDetails  implements UserDetails {
 
 
